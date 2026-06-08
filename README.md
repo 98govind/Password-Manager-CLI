@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Password Manager CLI
 
 ## Name
@@ -11,3 +12,4 @@ Pandey Ji
 
 ## Description
 A command-line password manager for storing and managing passwords.
+=======
