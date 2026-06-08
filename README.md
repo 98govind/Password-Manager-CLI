@@ -1,10 +1,10 @@
-# 🔐 Password Manager CLI
+# Password Manager CLI
 
 A simple and secure Command Line Interface (CLI) Password Manager built with Python.
 
 ---
 
-## 📌 Features
+##  Features
 - Store passwords securely
 - Retrieve saved passwords
 - Simple and lightweight CLI tool
@@ -12,7 +12,7 @@ A simple and secure Command Line Interface (CLI) Password Manager built with Pyt
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 - Python 🐍
 - Git & GitHub
 - JSON (for data storage)
@@ -30,7 +30,7 @@ Password-Manager-CLI/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ```bash
 # Clone repository
