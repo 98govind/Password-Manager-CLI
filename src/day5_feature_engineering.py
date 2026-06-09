@@ -1,8 +1,12 @@
 import pandas as pd
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-df = pd.read_csv("../data/processed/cleaned_data.csv")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CLEANED_DATA_PATH = os.path.join(BASE_DIR, "data", "processed", "cleaned_data.csv")
+
+df = pd.read_csv(CLEANED_DATA_PATH)
 
 # New Features
 df["password_length"] = df["password"].apply(len)
