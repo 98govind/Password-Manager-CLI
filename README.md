@@ -87,4 +87,27 @@ Basic tests were added for:
 4. View Credentials
 5. Exit
 
+## Advanced Features
+
+### Feature 1: Delete Credential
+
+User saved credentials ko delete kar sakega.
+
+### Feature 2: Search Credential
+
+User service name se credential search kar sakega.
+
+### Feature 3: Hide Password
+
+View credentials me password ko hide/mask karke dikhaya jayega.
+
+### Feature 4: Better Security
+
+Password storage ko aur secure banaya jayega.
+
+### Feature 5: Improved User Experience
+
+CLI menu ko aur user-friendly banaya jayega.
+
+
 
