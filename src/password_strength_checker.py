@@ -1,41 +1,40 @@
 """
-Core Feature 1: Password Strength Checker
+Core Feature 1 + Core Feature 2
 
-This feature checks the strength of a password entered by the user.
-It checks password length, numbers, uppercase letters, lowercase letters,
-and special characters. Based on these rules, it returns Weak, Medium, or Strong.
+Feature 1: Password Strength Checker
+Feature 2: Password Generator
+
+This program can:
+1. Check password strength
+2. Generate a strong password
+3. Check strength of generated password
 """
 
 import string
+import random
+
 
 def check_password_strength(password):
-    # Empty input check
     if not password:
         return "Password cannot be empty."
 
-    # Wrong type check
     if not isinstance(password, str):
         return "Invalid input. Password must be text."
 
     score = 0
 
-    # Rule 1: Length check
     if len(password) >= 8:
         score += 1
 
-    # Rule 2: Number check
     if any(char.isdigit() for char in password):
         score += 1
 
-    # Rule 3: Uppercase check
     if any(char.isupper() for char in password):
         score += 1
 
-    # Rule 4: Lowercase check
     if any(char.islower() for char in password):
         score += 1
 
-    # Rule 5: Special character check
     if any(char in string.punctuation for char in password):
         score += 1
 
@@ -47,7 +46,34 @@ def check_password_strength(password):
         return "Strong Password"
 
 
-# Manual testing with user input
-password = input("Enter your password: ")
-result = check_password_strength(password)
-print("Password Strength:", result)
+def generate_password(length=12):
+    if length < 8:
+        return "Password length should be at least 8."
+
+    characters = string.ascii_letters + string.digits + string.punctuation
+
+    password = "".join(random.choice(characters) for _ in range(length))
+
+    return password
+
+
+print("Password Manager CLI")
+print("1. Check Password Strength")
+print("2. Generate Strong Password")
+
+choice = input("Enter your choice (1 or 2): ")
+
+if choice == "1":
+    user_password = input("Enter your password: ")
+    result = check_password_strength(user_password)
+    print("Password Strength:", result)
+
+elif choice == "2":
+    generated_password = generate_password()
+    print("Generated Password:", generated_password)
+
+    strength = check_password_strength(generated_password)
+    print("Generated Password Strength:", strength)
+
+else:
+    print("Invalid choice. Please enter 1 or 2.")
