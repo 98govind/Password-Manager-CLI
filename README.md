@@ -87,27 +87,27 @@ Basic tests were added for:
 4. View Credentials
 5. Exit
 
-## Advanced Features
+#  Advanced Features
 
-### Feature 1: Delete Credential
+# 1. Delete Credential Feature
 
-User saved credentials ko delete kar sakega.
+Allow users to delete saved credentials from the password manager.
 
-### Feature 2: Search Credential
+# 2. Search Credential Feature
 
-User service name se credential search kar sakega.
+Allow users to search for saved credentials by service name.
 
-### Feature 3: Hide Password
+# 3. Password Masking
 
-View credentials me password ko hide/mask karke dikhaya jayega.
+Hide passwords while displaying credentials to improve security.
 
-### Feature 4: Better Security
+#4. Improved Security
 
-Password storage ko aur secure banaya jayega.
+Enhance password storage and handling for better security.
 
-### Feature 5: Improved User Experience
+#5. Better User Experience
 
-CLI menu ko aur user-friendly banaya jayega.
+Improve the CLI menu and overall user interaction.
 
 
 
