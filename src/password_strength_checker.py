@@ -5,8 +5,7 @@ Feature 1: Password Strength Checker
 Feature 2: Password Generator
 Feature 3: Password Storage Manager
 
-This program can check password strength, generate strong passwords,
-save credentials, and view saved credentials.
+Day 11: Input Validation + Error Handling
 """
 
 import string
@@ -43,7 +42,7 @@ def check_password_strength(password):
 
     if score <= 2:
         return "Weak Password"
-    elif score == 3 or score == 4:
+    elif score <= 4:
         return "Medium Password"
     else:
         return "Strong Password"
@@ -55,7 +54,7 @@ def generate_password(length=12):
     digit = random.choice(string.digits)
     special = random.choice(string.punctuation)
 
-    remaining = ''.join(
+    remaining = "".join(
         random.choice(string.ascii_letters + string.digits + string.punctuation)
         for _ in range(length - 4)
     )
@@ -63,29 +62,46 @@ def generate_password(length=12):
     password_list = list(uppercase + lowercase + digit + special + remaining)
     random.shuffle(password_list)
 
-    return ''.join(password_list)
+    return "".join(password_list)
 
 
 def load_passwords():
-    if not os.path.exists(DATA_FILE):
-        return {}
+    try:
+        if not os.path.exists(DATA_FILE):
+            return {}
 
-    with open(DATA_FILE, "r") as file:
-        return json.load(file)
+        with open(DATA_FILE, "r") as file:
+            return json.load(file)
+
+    except Exception as e:
+        print("Error loading passwords:", e)
+        return {}
 
 
 def save_passwords(passwords):
-    with open(DATA_FILE, "w") as file:
-        json.dump(passwords, file, indent=4)
+    try:
+        with open(DATA_FILE, "w") as file:
+            json.dump(passwords, file, indent=4)
+
+    except Exception as e:
+        print("Error saving passwords:", e)
 
 
 def add_credential():
-    service = input("Enter service name: ")
-    username = input("Enter username/email: ")
-    password = input("Enter password: ")
+    service = input("Enter service name: ").strip()
+    username = input("Enter username/email: ").strip()
+    password = input("Enter password: ").strip()
 
-    if not service or not username or not password:
-        print("Service, username, and password cannot be empty.")
+    if not service:
+        print("Service name cannot be empty.")
+        return
+
+    if not username:
+        print("Username cannot be empty.")
+        return
+
+    if not password:
+        print("Password cannot be empty.")
         return
 
     strength = check_password_strength(password)
@@ -128,10 +144,14 @@ while True:
     print("4. View Credentials")
     print("5. Exit")
 
-    choice = input("Enter your choice (1-5): ")
+    choice = input("Enter your choice (1-5): ").strip()
+
+    if not choice:
+        print("Choice cannot be empty.")
+        continue
 
     if choice == "1":
-        user_password = input("Enter your password: ")
+        user_password = input("Enter your password: ").strip()
         result = check_password_strength(user_password)
         print("Password Strength:", result)
 

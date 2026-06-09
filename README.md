@@ -41,3 +41,23 @@ cd Password-Manager-CLI
 
 # Run program
 python src/main.py
+
+## Approach
+
+### Data Exploration
+- Loaded dataset
+- Checked shape, columns, and data types
+- Identified missing values
+- Created visualizations
+
+### Data Cleaning
+- Removed missing values
+- Removed duplicate rows
+- Saved cleaned dataset
+
+### Feature Engineering
+- Created password_length feature
+- Created has_number feature
+- Applied feature scaling
+- Split data into train and test sets (80/20)
+
