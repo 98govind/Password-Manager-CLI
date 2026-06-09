@@ -61,3 +61,30 @@ python src/main.py
 - Applied feature scaling
 - Split data into train and test sets (80/20)
 
+## Features Built So Far
+
+* Password Strength Checker
+* Strong Password Generator
+* Credential Storage Manager
+* Input Validation and Error Handling
+* Basic Testing for Core Features
+
+## Testing
+
+Basic tests were added for:
+
+* Weak password detection
+* Medium password detection
+* Strong password detection
+* Empty password validation
+* Password generation
+
+## Current CLI Menu
+
+1. Check Password Strength
+2. Generate Strong Password
+3. Add Credential
+4. View Credentials
+5. Exit
+
+
