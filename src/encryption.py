@@ -52,6 +52,7 @@ def view_passwords():
 
     with open(PASSWORD_FILE, "r") as f:
         print("\nSaved Passwords")
+        print("Below are your decrypted saved passwords:")
         print("-" * 35)
 
         for line in f:
@@ -75,6 +76,7 @@ while True:
     print("\n" + "=" * 35)
     print("      PASSWORD MANAGER CLI")
     print("=" * 35)
+    print("Select an option by entering 1, 2, or 3")
     print("1. Save New Password")
     print("2. View Saved Passwords")
     print("3. Exit")
@@ -95,13 +97,14 @@ while True:
 
         strength = check_password_strength(password)
         print(f"Password Strength: {strength}")
+        print("Weak = Easy to guess | Medium = Better | Strong = Recommended")
 
         print("Saving password securely...")
         time.sleep(0.5)
 
         save_password(website, password)
 
-        print("Password saved successfully.")
+        print("Password saved successfully and encrypted securely.")
 
     elif choice == "2":
         print("Loading saved passwords...")
