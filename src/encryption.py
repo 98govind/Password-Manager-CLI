@@ -33,7 +33,7 @@ while True:
         with open(PASSWORD_FILE, "a") as f:
             f.write(f"{website},{encrypted_password}\n")
 
-        print("✅ Password Saved Successfully!")
+        print(" Password Saved Successfully!")
 
     elif choice == "2":
         if not os.path.exists(PASSWORD_FILE):
