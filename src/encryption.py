@@ -28,14 +28,46 @@ def check_password_strength(password):
         return "Strong"
 
 
-if not os.path.exists(KEY_FILE):
-    key = Fernet.generate_key()
-    with open(KEY_FILE, "wb") as f:
-        f.write(key)
+def load_key():
+    if not os.path.exists(KEY_FILE):
+        key = Fernet.generate_key()
+        with open(KEY_FILE, "wb") as f:
+            f.write(key)
 
-with open(KEY_FILE, "rb") as f:
-    key = f.read()
+    with open(KEY_FILE, "rb") as f:
+        return f.read()
 
+
+def save_password(website, password):
+    encrypted_password = fernet.encrypt(password.encode()).decode()
+
+    with open(PASSWORD_FILE, "a") as f:
+        f.write(f"{website},{encrypted_password}\n")
+
+
+def view_passwords():
+    if not os.path.exists(PASSWORD_FILE) or os.path.getsize(PASSWORD_FILE) == 0:
+        print("No saved passwords found. Add a password first.")
+        return
+
+    with open(PASSWORD_FILE, "r") as f:
+        print("\nSaved Passwords")
+        print("-" * 35)
+
+        for line in f:
+            try:
+                website, encrypted_password = line.strip().split(",")
+                decrypted_password = fernet.decrypt(encrypted_password.encode()).decode()
+
+                print(f"Website: {website}")
+                print(f"Password: {decrypted_password}")
+                print("-" * 35)
+
+            except Exception:
+                print("Error: One saved password record is corrupted. Skipping it.")
+
+
+key = load_key()
 fernet = Fernet(key)
 
 
@@ -52,7 +84,7 @@ while True:
 
     if choice == "1":
         print("Opening save password section...")
-        time.sleep(1)
+        time.sleep(0.5)
 
         website = input("Website Name: ")
         password = input("Password: ")
@@ -65,37 +97,21 @@ while True:
         print(f"Password Strength: {strength}")
 
         print("Saving password securely...")
-        time.sleep(1)
+        time.sleep(0.5)
 
-        encrypted_password = fernet.encrypt(password.encode()).decode()
-
-        with open(PASSWORD_FILE, "a") as f:
-            f.write(f"{website},{encrypted_password}\n")
+        save_password(website, password)
 
         print("Password saved successfully.")
 
     elif choice == "2":
         print("Loading saved passwords...")
-        time.sleep(1)
+        time.sleep(0.5)
 
-        if not os.path.exists(PASSWORD_FILE) or os.path.getsize(PASSWORD_FILE) == 0:
-            print("No saved passwords found. Add a password first.")
-        else:
-            with open(PASSWORD_FILE, "r") as f:
-                print("\nSaved Passwords")
-                print("-" * 35)
-
-                for line in f:
-                    website, encrypted_password = line.strip().split(",")
-                    decrypted_password = fernet.decrypt(encrypted_password.encode()).decode()
-
-                    print(f"Website: {website}")
-                    print(f"Password: {decrypted_password}")
-                    print("-" * 35)
+        view_passwords()
 
     elif choice == "3":
         print("Closing Password Manager...")
-        time.sleep(1)
+        time.sleep(0.5)
         print("Goodbye!")
         break
 
