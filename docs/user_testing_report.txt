@@ -1,0 +1,15 @@
+Day 19 User Testing Report
+
+Tester 1:
+- Successfully saved a password.
+- Successfully viewed saved passwords.
+- No major issues found.
+
+Tester 2:
+- Successfully used all menu options.
+- Understood password strength feature.
+- No major issues found.
+
+Planned Fixes:
+- Add more menu instructions.
+- Improve user feedback messages.
