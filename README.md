@@ -109,5 +109,20 @@ Enhance password storage and handling for better security.
 
 Improve the CLI menu and overall user interaction.
 
+## Installation
+
+git clone https://github.com/98govind/Password-Manager-CLI.git
+
+cd Password-Manager-CLI
+
+pip install cryptography
+
+## Deployment
+
+This is a Command Line Interface (CLI) application.
+
+The project is distributed through GitHub and can be run locally using Python.
+
+No web deployment is required.
 
 
