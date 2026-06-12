@@ -40,7 +40,6 @@ git clone https://github.com/98govind/Password-Manager-CLI.git
 cd Password-Manager-CLI
 
 # Run program
-# Run program
 python src/password_strength_checker.py
 
 ## Approach
