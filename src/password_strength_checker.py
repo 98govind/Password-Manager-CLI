@@ -4,8 +4,6 @@ Password Manager CLI - Core Features
 Feature 1: Password Strength Checker
 Feature 2: Password Generator
 Feature 3: Password Storage Manager
-
-Day 11: Input Validation + Error Handling
 """
 
 import string
@@ -13,7 +11,7 @@ import random
 import json
 import os
 
-DATA_FILE = "../data/passwords.json"
+DATA_FILE = "data/passwords.json"
 
 
 def check_password_strength(password):
@@ -80,6 +78,8 @@ def load_passwords():
 
 def save_passwords(passwords):
     try:
+        os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
+
         with open(DATA_FILE, "w") as file:
             json.dump(passwords, file, indent=4)
 
