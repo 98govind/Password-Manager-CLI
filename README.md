@@ -125,4 +125,15 @@ The project is distributed through GitHub and can be run locally using Python.
 
 No web deployment is required.
 
+## Screenshots
+
+### Password Strength Checker
+![Password Strength](screenshots/strength.png)
+
+### Password Generator
+![Password Generator](screenshots/generator.png)
+
+### Credential Manager
+![Credential Manager](screenshots/credentials.png)
+
 
