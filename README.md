@@ -131,9 +131,9 @@ No web deployment is required.
 ![Password Strength](screenshots/strength.png)
 
 ### Password Generator
-![Password Generator](screenshots/generator.png)
+![Password Generator](screenshots/Generator.png)
 
 ### Credential Manager
-![Credential Manager](screenshots/credentials.png)
+![Credential Manager](screenshots/Credential.png)
 
 
